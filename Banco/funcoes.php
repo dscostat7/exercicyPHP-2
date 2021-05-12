@@ -2,7 +2,7 @@
 
 function exibeMensagem(string $mensagem) 
 {   
-    echo $mensagem . PHP_EOL;
+    echo $mensagem . '<br>';
 }
 
 function sacar(array $conta, float $valor) : array
@@ -28,4 +28,9 @@ function deposito(array $conta, float $valor) : array
 function caixaAlta(array &$conta) 
 {
     $conta['titular'] = mb_strtoupper($conta['titular']);  // transformando todos os caracteres da string titular em caixa alta
+}
+
+function exibeConta(array $conta) {
+    ['titular' => $titular, 'saldo' => $saldo] = $conta;
+    echo "<li>Titular: $titular. Saldo: $$saldo.</li>";
 }
