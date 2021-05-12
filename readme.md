@@ -6,3 +6,7 @@ ____
 
 ``` 
 >> Rumo à cerficação de especialista em PHP!
+
+```
+
+``` php -S localhost:(porta desejada ser usada pela aplicação) ```
