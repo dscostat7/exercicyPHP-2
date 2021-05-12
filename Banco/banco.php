@@ -1,30 +1,6 @@
 <?php
 
-function exibeMensagem(string $mensagem) 
-{   
-    echo $mensagem . PHP_EOL;
-}
-
-function sacar(array $conta, float $valor) : array
-{
-    if ($valor > $conta['saldo']) {
-        exibeMensagem("Você não pode sacar um valor maior que o disponível em sua conta!");
-    } else {
-        $conta['saldo'] -= $valor;
-    }
-    return $conta;
-}
-
-function deposito(array $conta, float $valor) : array
-{
-    if ($valor < 0) {
-        exibeMensagem("Você não pode depositar um valor negativo!");
-    } else {
-        $conta['saldo'] += $valor;
-        }
-    return $conta;
-}
-
+require 'funcoes.php'; // require_once -> será importado apenas se ainda não o tiver;
 
 $contas = [
     
@@ -51,6 +27,8 @@ $contas['061.725.329-36'] = sacar($contas['061.725.329-36'], 2500);
 
 $contas['711.905.469-49'] = deposito($contas['711.905.469-49'], 7000);
 
+caixaAlta($contas['061.725.329-36']); // chamando a função caixa alta
+
 foreach ($contas as $cpf => $conta) {
-    exibeMensagem($cpf . " " . $conta['titular'] . " " . "$" . $conta['saldo']);
+    exibeMensagem("$cpf $conta[titular] $$conta[saldo]");
 }
